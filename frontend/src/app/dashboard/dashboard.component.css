@@ -1,0 +1,19 @@
+.drawer {
+  width: 300px;
+
+}
+
+.sideBarButtonRow {
+  width: 300px;
+  height: 80px;
+  color: blueviolet !important;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 15px;
+  font-weight: bold;
+  border-color: blueviolet !important;
+}
+
+.addButton {
+  bottom: -10%;
+  right: -100px;
+}

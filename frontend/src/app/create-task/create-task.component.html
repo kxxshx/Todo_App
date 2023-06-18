@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Create Form</title>
+</head>
+
+<body>
+   <app-auth></app-auth>
+   <div style="margin-left: 450px; margin-top: 10%;">
+      <mat-card style="height:300px;width: 500px;">
+         <mat-card-content>
+            <h3 class="title" style="color:blueviolet;margin-left: 110px; font-size: 30px;">Create Your Task</h3>
+            <form class="example-form" [formGroup]="taskForm">
+               <mat-form-field class="example-full-width" style="height: 80px;">
+                  <mat-label>Task Name</mat-label>
+                  <input matInput placeholder="Ex. Shopping" formControlName="task_name">
+               </mat-form-field>
+               <mat-form-field class="example-full-width" style="height: 80px;">
+                  <mat-label>Task Description</mat-label>
+                  <input matInput placeholder="Ex.For Thursday's House Party" formControlName="task_desc">
+               </mat-form-field>
+               <mat-card-actions style="margin-left:150px">
+                  <button mat-raised-button style="color: antiquewhite; background-color: blueviolet;"
+                     (click)="onSubmit()">Create</button>
+                  <button mat-raised-button color="accent" (click)="onClose()">Close</button>
+               </mat-card-actions>
+            </form>
+         </mat-card-content>
+      </mat-card>
+   </div>
+</body>
+
+</html>

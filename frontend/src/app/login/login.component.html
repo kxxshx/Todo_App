@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Login Form</title>
+</head>
+
+<body>
+   <div class="container">
+      <div class="img">
+         <img src="../../assets/images/login.jpg">
+      </div>
+      <div class="login-content">
+         <img src="../../assets/images/undraw_Male_avatar_g98d.png">
+         <h3 class="title">Welcome Back</h3>
+         <form class="example-form" name="loginForm" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <mat-form-field class="example-full-width" style="height: 80px;">
+               <mat-label>Username</mat-label>
+               <input matInput placeholder="Ex. jimin@gmail.com" formControlName="email" required>
+               <mat-icon matSuffix>perm_identity</mat-icon>
+               <mat-error *ngIf="loginForm.get('email').errors?.required">
+                  Email Address is Required
+               </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" style="height: 80px;">
+               <mat-label>Password</mat-label>
+               <input matInput [type]="showPassword ? 'text' : 'password'" name="password" formControlName="password"
+                  required>
+               <mat-icon matSuffix
+                  (click)="togglePasswordVisibility()">{{showPassword?'visibility_off':'visibility'}}</mat-icon>
+               <mat-error *ngIf="loginForm.get('password').errors?.required ">
+                  Password is Required
+               </mat-error>
+            </mat-form-field>
+            <input type="submit" class="btn" value="Login">
+         </form>
+         <div *ngIf = error>{{error}}</div>
+         <p style="margin-left:130px;color: blueviolet;">Don't have an account yet?
+            <button mat-flat-button style="color: blueviolet; width:20px;"
+               [routerLink]="(['/signup'])">Register</button>
+         </p>
+      </div>
+   </div>
+</body>
+
+</html>

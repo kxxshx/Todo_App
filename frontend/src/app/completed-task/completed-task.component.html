@@ -1,0 +1,30 @@
+<mat-toolbar style="background-color: blueviolet; color: antiquewhite;">
+  <mat-toolbar-row>
+    <span style="font-family: Georgia, 'Times New Roman', Times, serif;">Completed Tasks</span>
+    <button mat-stroked-button style="margin-left:75%;margin-right:5px;color: antiquewhite;"
+      [routerLink]="[('/dashboard')]">Close</button>
+    <button mat-stroked-button style="color: antiquewhite;" (click)="onlogout()">Logout</button>
+  </mat-toolbar-row>
+
+</mat-toolbar>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Name Column -->
+  <ng-container matColumnDef="Name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element['task_name'] }}</td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="Description">
+    <th mat-header-cell *matHeaderCellDef>Description</th>
+    <td mat-cell *matCellDef="let element"> {{element['task_desc']}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Completed_At">
+    <th mat-header-cell *matHeaderCellDef>Completed_At</th>
+    <td mat-cell *matCellDef="let element"> {{element['task_complete_at']}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnsToDisplay">
+</table>

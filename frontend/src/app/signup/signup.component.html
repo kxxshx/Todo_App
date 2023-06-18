@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Login Form</title>
+</head>
+
+<body>
+   <div class="container">
+      <div class="img">
+         <img src="../../assets/images/signup_final.jpg">
+      </div>
+      <div class="login-content">
+         <div class="rectangle">
+            <h3 class="title">Welcome</h3>
+            <form class="example-form" name="signupForm" [formGroup]="signupForm" (ngSubmit)="onSignup()">
+               <mat-form-field class="example-full-width" style="height: 70px;">
+                  <mat-label>Name</mat-label>
+                  <input matInput placeholder="Ex.Jimin Park" formControlName="name" required>
+                  <mat-icon matSuffix>perm_identity</mat-icon>
+                  <mat-error *ngIf="signupForm.get('name').errors?.required">
+                     Name is Required
+                  </mat-error>
+               </mat-form-field>
+               <mat-form-field class="example-full-width" style="height: 70px;">
+                  <mat-label>Email</mat-label>
+                  <input matInput placeholder="Ex. jimin@gmail.com" formControlName="email" required>
+                  <mat-icon matSuffix>email</mat-icon>
+                  <mat-error *ngIf="signupForm.get('email').errors?.required">
+                     Email is Required
+                  </mat-error>
+               </mat-form-field>
+               <mat-form-field class="example-full-width" style="height: 70px;">
+                  <mat-label>Password</mat-label>
+                  <input matInput formControlName="password" [type]="showPassword ? 'text' : 'password'" name="password"
+                     required>
+                  <mat-icon matSuffix
+                     (click)="togglePasswordVisibility()">{{showPassword?'visibility_off':'visibility'}}</mat-icon>
+                  <mat-error *ngIf="signupForm.get('password').errors?.required">
+                     Password is Required
+                  </mat-error>
+               </mat-form-field>
+               <input type="submit" class="btn" value="Register">
+            </form>
+            <div *ngIf="error">{{error}}</div>
+            <p style="margin-left:130px;color: blueviolet;">Already have an account?
+               <button mat-flat-button style="color: blueviolet; width:10px;border: 1px black;"
+                  [routerLink]="(['/login'])">Login</button>
+            </p>
+
+         </div>
+      </div>
+   </div>
+</body>
+
+</html>

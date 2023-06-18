@@ -1,0 +1,9 @@
+<mat-toolbar style="background-color: blueviolet; color: antiquewhite;">
+  <mat-toolbar-row>
+    <span style="font-family: Georgia, 'Times New Roman', Times, serif;">Todos</span>
+    <button mat-stroked-button style="width:150px;margin-left: 80%;color: antiquewhite;"
+      [routerLink]="[('/showCompleted')]">Completed Tasks</button>
+    <button mat-stroked-button style="color: antiquewhite;" (click)="onlogout()">Logout</button>
+  </mat-toolbar-row>
+
+</mat-toolbar>
